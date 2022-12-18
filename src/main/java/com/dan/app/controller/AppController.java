@@ -12,11 +12,6 @@ public class AppController {
 		return "/Dashboard";
 	}
 	
-	@GetMapping("/")
-	public String home(Model model, HttpSession session) {
-		return "index";
-	}
-	
 	@GetMapping("/venta")
 	public String venta() {
 		return "/venta";
