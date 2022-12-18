@@ -1,24 +1,23 @@
 package com.dan.app.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
 public class AppController {
 	
 	@GetMapping("/Dashboard")
-	public String Dashboard() {
+	public String Dashboard(Model model) {
 		return "/Dashboard";
 	}
 	
 	@GetMapping("/venta")
-	public String venta() {
+	public String venta(Model model) {
 		return "/venta";
 	}
 
-	@GetMapping(path = "pages/contacto")
+	@GetMapping("pages/contacto")
 	public String contacto() {
 		return "pages/contacto";
 	}
@@ -63,14 +62,10 @@ public class AppController {
 		return "pages/Tablas/ContactoDash";
 	}
 
-	@GetMapping(path = "/chat")
-	public String chat() {
-		return "/chat";
-	}
 	
 	
 	@GetMapping(path = "/login")
-	public String login() {
+	public String login(Model model) {
 		return "/login";
 	}
 }
