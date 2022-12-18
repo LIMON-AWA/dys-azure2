@@ -30,6 +30,7 @@ import com.dan.app.service.IUsuarioService;
 import com.dan.app.service.ProductoService;
 
 @Controller
+@RequestMapping("/")
 public class HomeController {
 
 	private final Logger log = LoggerFactory.getLogger(HomeController.class);
