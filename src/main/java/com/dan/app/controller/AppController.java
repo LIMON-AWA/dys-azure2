@@ -7,14 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AppController {
 	
-	@GetMapping("/Dashboard")
+	@GetMapping("pages/Dashboard")
 	public String Dashboard(Model model) {
-		return "/Dashboard";
-	}
-	
-	@GetMapping("/")
-	public String index() {
-		return "/Dashboard";
+		return "pages/Dashboard";
 	}
 	
 	@GetMapping("/venta")
@@ -67,10 +62,18 @@ public class AppController {
 		return "pages/Tablas/ContactoDash";
 	}
 
+	@GetMapping(path = "pages/Email")
+	public String Email(Model model) {
+		return "pages/Email";
+	}
 	
-	
-	@GetMapping(path = "/login")
+	@GetMapping(path = "pages/login")
 	public String login(Model model) {
-		return "/login";
+		return "pages/login";
+	}
+	
+	@GetMapping(path = "pages/Chat")
+	public String Chat(Model model) {
+		return "pages/Chat";
 	}
 }

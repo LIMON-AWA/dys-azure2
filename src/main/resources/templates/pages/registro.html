@@ -28,7 +28,7 @@
 				</div>
 
 				<h1>Regístrate</h1>
-				<form th:action="@{/registro}" method="post" th:object="${usuario}">
+				<form th:action="@{/pages/registro}" method="post" th:object="${usuario}">
 					<div class="form-group">
 						<label class="control-label" for="nombre">Nombre : </label> <input
 							id="nombre" type="text" class="form-control" th:field="*{nombre}"
@@ -55,7 +55,7 @@
 
 					<div class="form-group">
 						<button type="submit" class="btn btn-success">Registrar</button>
-						<span>Si estas registrado <a th:href="@{/login}">inicia sesión aqui</a></span>
+						<span>Si estas registrado <a th:href="@{/pages/login}">inicia sesión aqui</a></span>
 					</div>
 				</form>
 

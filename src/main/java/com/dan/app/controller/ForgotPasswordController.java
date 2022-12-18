@@ -33,7 +33,7 @@ public class ForgotPasswordController {
 
 	@GetMapping("/forgot_password")
 	public String showForgotPasswordForm() {
-		return "forgot_password_form";
+		return "pages/forgot_password_form";
 	}
 
 	public void sendEmail(String recipientEmail, String link)
@@ -73,7 +73,7 @@ public class ForgotPasswordController {
 	        return "message";
 	    }
 	     
-	    return "reset_password_form";
+	    return "pages/reset_password_form";
 	}
 
 	@PostMapping("/reset_password")
@@ -93,7 +93,7 @@ public class ForgotPasswordController {
 	        model.addAttribute("message", "You have successfully changed your password.");
 	    }
 	     
-	    return "message";
+	    return "pages/message";
 	}
 	
 	@PostMapping("/forgot_password")
@@ -115,6 +115,6 @@ public class ForgotPasswordController {
 	        		+ "Error al enviar correo electrónico");
 	    }
 	         
-	    return "forgot_password_form";
+	    return "pages/forgot_password_form";
 	}
 }

@@ -64,11 +64,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		.and()
 		.formLogin()
 		.loginPage("/login")
-		.defaultSuccessUrl("/Dashboard")
+		.defaultSuccessUrl("/pages/Dashboard")
 		.permitAll()
 		.and()
 		.logout()
-		.logoutSuccessUrl("/login?logout")
+		.logoutSuccessUrl("/pages/login?logout")
 		.permitAll();
 		 http.headers().frameOptions().sameOrigin().httpStrictTransportSecurity().disable();
 	}

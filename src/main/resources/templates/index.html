@@ -79,8 +79,8 @@
 									<button class="dropbtn" th:href="@{/Login}">Bienvenido
 							[[${#httpServletRequest.remoteUser}]]!</button>
 									<div class="dropdown-content">
-										<a th:href="@{/login}">Login</a> 
-										<a href="/Dashboard">Dashboard</a> 
+										<a th:href="@{pages/login}">Login</a> 
+										<a th:href="@{pages/Dashboard}">Dashboard</a> 
 										<a href="#">Configuracion</a>
 									</div>
 								</div>
@@ -109,7 +109,7 @@
 									<li><a th:href="@{/pages/Nosotros}">Nosotros</a></li>
 									<li><a th:href="@{/home}">Carrito</a></li>
 									<li><a th:href="@{/pages/contacto}">Contacto</a></li>
-									<li><a href="/chat">Soporte</a></li>
+									<li><a th:href="@{/pages/Chat}">Soporte</a></li>
 									<li><a href="/venta">Soporte</a></li>
 								</ul>
 							</div>

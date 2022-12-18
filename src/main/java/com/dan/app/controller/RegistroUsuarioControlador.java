@@ -10,7 +10,7 @@ import com.dan.app.model.UsuarioRegistroDTO;
 import com.dan.app.serviceInterface.UsuarioServicio;
 
 @Controller
-@RequestMapping("/registro")
+@RequestMapping("pages/registro")
 public class RegistroUsuarioControlador {
 
 	private UsuarioServicio usuarioServicio;
@@ -27,12 +27,12 @@ public class RegistroUsuarioControlador {
 
 	@GetMapping
 	public String mostrarFormularioDeRegistro() {
-		return "registro";
+		return "pages/registro";
 	}
 	
 	@PostMapping
 	public String registrarCuentaDeUsuario(@ModelAttribute("usuario") UsuarioRegistroDTO registroDTO) {
 		usuarioServicio.guardar(registroDTO);
-		return "redirect:/registro?exito";
+		return "redirect:/pages/registro?exito";
 	}
 }
