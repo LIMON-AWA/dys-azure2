@@ -8,12 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AppController {
 	
 	@GetMapping("/Dashboard")
-	public String Dashboard(Model model) {
+	public String Dashboard() {
 		return "/Dashboard";
 	}
 	
+	@GetMapping("/")
+	public String home(Model model, HttpSession session) {
+		return "index";
+	}
+	
 	@GetMapping("/venta")
-	public String venta(Model model) {
+	public String venta() {
 		return "/venta";
 	}
 
@@ -61,8 +66,6 @@ public class AppController {
 	public String Contacto() {
 		return "pages/Tablas/ContactoDash";
 	}
-
-	
 	
 	@GetMapping(path = "/login")
 	public String login(Model model) {
