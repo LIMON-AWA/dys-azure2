@@ -12,6 +12,11 @@ public class AppController {
 		return "/Dashboard";
 	}
 	
+	@GetMapping("/")
+	public String index() {
+		return "/Dashboard";
+	}
+	
 	@GetMapping("/venta")
 	public String venta(Model model) {
 		return "/venta";
