@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista Compras</title>
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+		<br>
+		<div>
+			<a th:href="@{/newCompra}" class="btn btn-primary">Agregar</a>
+			<a href="/export/all" class="btn btn-danger">Exportar</a>
+		</div>
+		<div>
+			<h2>Compras</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id_Categoria</th>
+						<th>Descripcion</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="c:${Categorias}">
+						<td th:text="${c.Idcategoria}">
+						<td th:text="${c.Descripcion}">
+						<td><a class="btn btn-info" th:href="@{/editarCategoria/}+${c.Idcategoria}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/eliminarCategoria/}+${c.Idcategoria}" href="#">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
