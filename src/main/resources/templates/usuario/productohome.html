@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" type="text/css" href="static/style.css"
+	th:href="@{/css/style3.css}">
+<title>Detalle Producto</title>
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+</head>
+<body>
+	<style>
+.dropbtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+	z-index: 300;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 300;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+}
+</style>
+	<header class="header-area" style="margin-bottom: 120px;">
+		<div class="top-header">
+			<div class="container h-100">
+				<div class="row h-100">
+					<div class="col-12 h-100">
+						<div
+							class="header-content h-100 d-flex align-items-center justify-content-between">
+							<div class="academy-logo">
+								<a href="/"><img src="/img/DYS.png" alt=""
+									style="width: 210px; height: 80px; margin-bottom: 10px;" /></a>
+							</div>
+							<div class="login-content">
+								<div class="dropdown">
+									<button class="dropbtn" th:href="@{/Login}">Bienvenido
+										[[${#httpServletRequest.remoteUser}]]!</button>
+									<div class="dropdown-content">
+										<a th:href="@{/login}">Login</a> <a href="/Dashboard">Dashboard</a>
+										<a class="dropdown-item" th:href="@{/usuario/compras}">Compras</a>
+										<a th:href="@{/getCart}">Carrito</a> <a
+											th:href="@{/productos}">Productos</a> <a
+											th:href="@{/administrador/usuarios}">Usuarios</a> <a
+											th:href="@{/administrador/ordenes}">Ordenes</a> <a href="#">Configuracion</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="academy-main-menu">
+			<div class="classy-nav-container breakpoint-off">
+				<div class="container">
+					<nav class="classy-navbar justify-content-between" id="academyNav">
+						<div class="classy-navbar-toggler">
+							<span class="navbarToggler"><span></span><span></span><span></span></span>
+						</div>
+						<div class="classy-menu">
+							<div class="classycloseIcon">
+								<div class="cross-wrap">
+									<span class="top"></span><span class="bottom"></span>
+								</div>
+							</div>
+							<div class="classynav">
+								<form class="form-inline my-2 my-lg-0" method="post"
+									th:action="@{/search}">
+									<input class="form-control mr-sm-2" type="search"
+										placeholder="Buscar" aria-label="Search" name="nombre"
+										autocomplete="off">
+									<button class="btn btn-outline-success my-2 my-sm-0"
+										type="submit">Buscar</button>
+								</form>
+							</div>
+						</div>
+						<div class="calling-info">
+							<div class="call-center">
+								<a href="tel:+573196025938"><i class="icon-telephone-2"></i>
+									<span>(+57) 319 602 5938</span></a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="card mb-4">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-lg-6">
+						<a href="#"> <img class="img-fluid rounded"
+							th:src="@{/images/{img} (img=${producto.imagen})  }" alt="">
+						</a>
+					</div>
+					<div class="col-lg-6">
+						<form th:action="@{/cart}" method="POST">
+							<input type="hidden" th:value="${producto.id}" name="id">
+							<h2 class="card-title" th:text="${producto.nombre}"></h2>
+
+							<ul class="list-group">
+								<li class="list-group-item"><h5
+										th:text=" 'Precio: '+ ${producto.precio} "></h5></li>
+								<li class="list-group-item">
+									<p th:text=" 'Descripción: '+ ${producto.descripcion} "></p>
+								</li>
+								<li class="list-group-item"><h6>
+										Cantidad: <input type="number" id="cantidad" name="cantidad"
+											autocomplete="off" min="1" max="5" value="1">
+									</h6></li>
+							</ul>
+
+
+							<button type="submit" class="btn btn-dark">Añadir al
+								carrito</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer-area">
+		<div class="main-footer-area section-padding-100-0">
+			<div class="container" style="margin-left: 30%;">
+				<div class="row">
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="footer-widget mb-100">
+							<div class="widget-title">
+								<a href="#"><img src="/img/DYS.png" alt="" /></a>
+							</div>
+							<p>Somos TORNILLOS Y BATERIA., líder en brindar soluciones
+								integrales en ferretería liviana, seguridad industrial y
+								complementarios. Nuestra principal apuesta hasta la fecha es
+								entregar la mejor asesoría, calidad y un excelente servicio.
+								Ello nos ha permitido lograr un gran reconocimiento en el
+								mercado y la preferencia de quienes nos visitan o nos contactan
+								a través de nuestros diferentes canales de comercialización.</p>
+							<div class="footer-social-info">
+								<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+									class="fa fa-twitter"></i></a> <a href="#"><i
+									class="fa fa-dribbble"></i></a> <a href="#"><i
+									class="fa fa-behance"></i></a> <a href="#"><i
+									class="fa fa-instagram"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="footer-widget mb-100">
+							<div class="widget-title">
+								<h6>Contacto</h6>
+							</div>
+							<div class="single-contact d-flex mb-30">
+								<i class="icon-placeholder"></i>
+								<p>Cra.45 a No.168A - 15 Granada norte</p>
+							</div>
+							<div class="single-contact d-flex mb-30">
+								<i class="icon-telephone-1"></i>
+								<p>
+									Fijo: 672 59 16 <br />Oficina: 319 602 59 38
+								</p>
+							</div>
+							<div class="single-contact d-flex">
+								<i class="icon-contract"></i>
+								<p>Wilson@gmail.com</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script th:src="@{vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script src="/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="/js/bootstrap/popper.min.js"></script>
+	<script src="/js/bootstrap/bootstrap.min.js"></script>
+	<script src="/js/plugins/plugins.js"></script>
+	<script src="/js/active.js"></script>
+</body>
+</html>

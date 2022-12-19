@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista Compras</title>
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+		<br>
+		<div>
+			<a th:href="@{/newCompra}" class="btn btn-primary">Agregar</a>
+			<a href="/export/all" class="btn btn-danger">Exportar</a>
+		</div>
+		<div>
+			<h2>Compras</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id_Compra</th>
+						<th>NO.compra</th>
+						<th>Cantidad</th>
+						<th>Stock</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="c:${Compra}">
+						<td th:text="${c.idCompra}">
+						<td th:text="${c.noCompra}">
+						<td th:text="${c.cantidad}">
+						<td th:text="${c.stock}">
+						<td><a class="btn btn-info" th:href="@{/editarCompra/}+${c.idCompra}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/deleteCompra/}+${c.idCompra}" href="#">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

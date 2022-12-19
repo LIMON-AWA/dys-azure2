@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista Domicilios</title>
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+		<br>
+		<div>
+			<a th:href="@{/newDomicilio}" class="btn btn-primary">Agregar</a>
+			<a href="/export/all" class="btn btn-danger">Exportar</a>
+		</div>
+		<div>
+			<h2>Domicilios</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id_Domicilio</th>
+						<th>NO.domicilio</th>
+						<th>Cantidad</th>
+						<th>Precio</th>
+						<th>Producto</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="d:${Domicilio}">
+						<td th:text="${d.idDomicilio}">
+						<td th:text="${d.nODomicilio}">
+						<td th:text="${d.Cantidad}">
+						<td th:text="${d.Precio}">
+						<td th:text="${d.Producto}">
+						<td><a class="btn btn-info" th:href="@{/EditarDomicilio/}+${d.idDomicilio}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/deleteDomicilio/}+${d.idDomicilio}" href="#">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

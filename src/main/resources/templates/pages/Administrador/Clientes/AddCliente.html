@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agregar</title>
+</head>
+<body>
+	<div>
+		<form th:action="@{/saveCliente}" th:object="${Cliente}" method="POST">
+			<div></div>
+			<div>
+				<div>
+					<label>ID</label> <input type="text" th:field="*{idCliente}" readonly="readonly" />
+				</div>
+				<div>
+					<label>Direccion</label> <input type="text" th:field="*{Direccion}"/>
+				</div>
+				<div>
+					<label>Dni</label> <input type="text" th:field="*{Dni}"/>
+				</div>
+				<div>
+					<label>Email</label> <input type="text" th:field="*{Email}"/>
+				</div>
+				<div>
+					<label>Nombres</label> <input type="text" th:field="*{Nombres}" />
+				</div>
+				<div>
+					<label>Contraseña</label> <input type="text" th:field="*{password}" />
+				</div>
+			</div>
+			<div>
+				<input type="submit" value="Guardar" /> <a th:href="@{/listarCliente}">Regresar</a>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
