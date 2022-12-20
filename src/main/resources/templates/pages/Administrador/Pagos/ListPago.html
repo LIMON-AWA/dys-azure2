@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista Pagos</title>
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+		<br>
+		<div>
+			<a th:href="@{/newPago}" class="btn btn-primary">Agregar</a>
+			<a href="/export/all" class="btn btn-danger">Exportar</a>
+		</div>
+		<div>
+			<h2>Pagos</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id_pago</th>
+						<th>Monto</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p:${Pago}">
+						<td th:text="${p.idPago}">
+						<td th:text="${p.Monto}">
+						<td><a class="btn btn-info" th:href="@{/EditarPago/}+${p.idPago}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/deletePago/}+${p.idPago}" href="#">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

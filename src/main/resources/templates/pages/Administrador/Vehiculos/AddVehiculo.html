@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agregar</title>
+<link rel="stylesheet" type="text/css" href="style.css"
+	th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+	<div class="container" style="margin-left: 275px; margin-top: 20px;">
+		<div class="col-sm-6">
+			<form th:action="@{/saveVehiculo}" th:object="${Vehiculo}"
+				method="POST">
+				<div class="card">
+					<div class="card-body">
+						<div class="form-group">
+							<label>ID</label> <input type="text" th:field="*{idVehiculo}"
+								readonly="readonly" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>NO.vehiculo</label> <input type="text"
+								th:field="*{noVehiculo}" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Marca</label> <input type="text" th:field="*{marca}" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Placa</label> <input type="text" th:field="*{placa}" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Tipo de vehiculo</label> <input type="text"
+								th:field="*{tipoVehiculoFK}" class="form-control"/>
+						</div>
+					</div>
+					<div style="margin-left: 65px;">
+						<input type="submit" value="Guardar" class="btn btn-success"/> <a
+							th:href="@{/listarVehiculo}" style="border: none; border-radius: 5px; color: white; padding: 7px 22px;
+                        text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin-bottom: 12px; cursor: pointer;
+                        background-color: #00CED1;">Regresar</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

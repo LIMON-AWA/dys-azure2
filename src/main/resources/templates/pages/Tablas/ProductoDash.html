@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<title>Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+	rel="stylesheet" />
+<link rel="icon"
+	href="/img/transparent-leaf-green-logo-plant-5de509e24fe954.7285757515752913623273.png">
+<link rel="stylesheet" type="text/css" href="style.css"
+	th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" type="text/css" href="style.css"
+	th:href="@{/css/custom.css}">
+<link rel="stylesheet" type="text/css" href="style.css"
+	th:href="@{/css/style1.css}">
+
+</head>
+<body>
+	<div class="wrapper">
+		<div class="body-overlay"></div>
+		<nav id="sidebar">
+			<div class="sidebar-header">
+				<h3 style="text-align: center;">
+					<img src="/img/DYS.png" class="img-fluid" style="width: 210px;" /><br>
+					<br> <span>DYS</span>
+				</h3>
+			</div>
+			<ul class="list-unstyled components">
+				<li class="active"><a href="" class="dashboard"><i
+						class="material-icons">dashboard</i><span>Dashboard</span></a></li>
+				<div class="small-screen navbar-display">
+					<li class="d-lg-none d-md-block d-xl-none d-sm-block"><a
+						href="#"><i class="material-icons">apps</i><span>apps</span></a></li>
+					<li class="d-lg-none d-md-block d-xl-none d-sm-block"><a
+						href="#"><i class="material-icons">person</i><span>Usuario</span></a>
+					</li>
+					<li class="d-lg-none d-md-block d-xl-none d-sm-block"><a
+						href="#"><i class="material-icons">settings</i><span>Configuracion</span></a>
+					</li>
+				</div>
+				<li class=""><a th:href="@{/pages/Tablas/EmailDash}"><i
+						class="material-icons">date_range</i><span>Enviar Email</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/CategoriaDash}"><i
+						class="material-icons">date_range</i><span>Categorias</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/InventarioDash}"><i
+						class="material-icons">library_books</i><span>Inventario</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/ProductoDash}"><i
+						class="material-icons">library_books</i><span>Productos</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/RolDash}"><i
+						class="material-icons">library_books</i><span>Roles</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Usuarios</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Pedidos</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Domicilios</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Clientes</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Proveedores</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Compras</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Registro de
+							Tarjetas</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Ventas</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Vehiculos</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Domiicliarios</span></a></li>
+				<li class=""><a th:href="@{/pages/Tablas/UsuarioDash}"><i
+						class="material-icons">library_books</i><span>Solicitud de
+							contacto</span></a></li>
+			</ul>
+		</nav>
+		<div id="content">
+			<div class="top-navbar">
+				<nav class="navbar navbar-expand-lg">
+					<div class="container-fluid">
+						<button type="button" id="sidebarCollapse"
+							class="d-xl-block d-lg-block d-md-mone d-none">
+							<span class="material-icons">arrow_back_ios</span>
+						</button>
+
+						<a class="navbar-brand" href="/"> Bienvenido
+							[[${#httpServletRequest.remoteUser}]]! </a>
+
+						<button class="d-inline-block d-lg-none ml-auto more-button"
+							type="button" data-toggle="collapse"
+							data-target="#navbarSupportedContent"
+							aria-controls="navbarSupportedContent" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="material-icons">more_vert</span>
+						</button>
+
+						<div
+							class="collapse navbar-collapse d-lg-block d-xl-block d-sm-none d-md-none d-none"
+							id="navbarSupportedContent">
+							<ul class="nav navbar-nav ml-auto">
+								<li class="dropdown nav-item active"><a href="#"
+									class="nav-link" data-toggle="dropdown"> <span
+										class="material-icons">notifications</span> <span
+										class="notification">4</span>
+								</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Tienes 5 mensajes nuevos</a></li>
+										<li><a href="#">Ahora eres amigo de mike</a></li>
+										<li><a href="#">Hoy es el cumpleaños de mary</a></li>
+										<li><a href="#">5 advertencias de la consola</a></li>
+									</ul></li>
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										class="material-icons">apps</span>
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										class="material-icons">person</span>
+								</a></li>
+								<li class="nav-item">
+									<form th:action="@{/logout}" method="post">
+										<input type="submit" value="Cerrar Sesion"
+											class="btn btn-primary" />
+									</form>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+
+			<div class="main-content">
+				<div class="row"></div>
+				<div class="row" style="justify-content: center;">
+            <iframe th:src="@{/productos}" width="980" height="560" frameBorder="0" allowFullScreen></iframe>
+          </div>
+				<footer class="footer">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-6">
+								<nav class="d-flex">
+									<ul class="m-0 p-0">
+										<li><a href="#">Inicio</a></li>
+										<li><a href="#">Empresa</a></li>
+										<li><a href="#">Portafolio</a></li>
+										<li><a href="#">Blog</a></li>
+									</ul>
+								</nav>
+							</div>
+							<div class="col-md-6">
+								<p class="copyright d-flex justify-content-end">
+									2022 Diseñado por<a href="#">Daniel Gonzalez Y Sebastian
+										Forero</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+	<script src="/js/jquery-3.3.1.slim.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#sidebarCollapse").on("click", function() {
+				$("#sidebar").toggleClass("active");
+				$("#content").toggleClass("active");
+			});
+			$(".more-button,.body-overlay").on("click", function() {
+				$("#sidebar,.body-overlay").toggleClass("show-nav");
+			});
+		});
+	</script>
+</body>
+</html>
