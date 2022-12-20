@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista Categorias</title>
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+		<br>
+		<div>
+			<a th:href="@{/newCliente}" class="btn btn-primary">Agregar</a>
+			<a href="/export/all" class="btn btn-danger">Exportar</a>
+		</div>
+		<div>
+			<h2>Clientes</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id_Cliente</th>
+						<th>Direccion</th>
+						<th>Dni</th>
+						<th>Email</th>
+						<th>Nombres</th>
+						<th>Contraseña</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="c:${Cliente}">
+						<td th:text="${c.idCliente}">
+						<td th:text="${c.Direccion}">
+						<td th:text="${c.Dni}">
+						<td th:text="${c.email}">
+						<td th:text="${c.nombres}">
+						<td th:text="${c.password}">
+						<td><a class="btn btn-info" th:href="@{/editarCliente/}+${c.idCliente}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/eliminarCliente/}+${c.idCliente}" href="#">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
