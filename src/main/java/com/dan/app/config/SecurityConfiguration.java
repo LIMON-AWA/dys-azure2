@@ -18,7 +18,7 @@ import com.dan.app.serviceInterface.UsuarioServicio;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 	String[] resources = new String[]{
-            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**","/static/**","/vendor/**"
+            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**","/static/**","/vendor/**","/images//**"
     };
 	
 	@Autowired
@@ -51,7 +51,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 				"/js/**",
 				"/css/**",
 				"/img/**",
-				"/vendor/**").permitAll()
+				"/vendor/**",
+				"/images//**").permitAll()
 		.antMatchers("/","/index").permitAll()
 		.antMatchers("/home").permitAll()
 		.antMatchers("/usuario/home").permitAll()
